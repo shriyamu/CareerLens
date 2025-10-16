@@ -1,0 +1,193 @@
+/* src/styles.css */
+:root {
+    --primary-bg: #f9fafb; /* Light background */
+    --header-bg: #ffffff;
+    --sidebar-bg: #ffffff;
+    --tab-inactive-text: #6b7280;
+    --tab-active-bg: #1f2937; /* Dark background for active tab */
+    --tab-active-text: #ffffff;
+    --border-color: #e5e7eb;
+    --text-dark: #1f2937;
+    --text-medium: #4b5563;
+    --text-light: #9ca3af;
+    --gradient-start: #f0f4f8; /* A light, subtle gradient */
+    --gradient-end: #e2e8f0;
+}
+
+body {
+    margin: 0;
+    font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            'Open Sans',
+            'Helvetica Neue',
+            sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--primary-bg);
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(
+            135deg,
+            var(--gradient-start) 0%,
+            var(--gradient-end) 100%
+    );
+    padding: 20px;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden; /* Ensures content doesn't bleed out of rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    background-color: var(--sidebar-bg); /* For the area holding sidebar and content */
+}
+
+/* Header Styles */
+.header {
+    background-color: var(--header-bg);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #6a0dad; /* A purple tone for the icon */
+    border-radius: 8px;
+    margin-right: 10px;
+    box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.5),
+    inset 0 0 0 6px #6a0dad; /* Simulate the target icon */
+}
+
+.app-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-right: 10px;
+}
+
+.app-tagline {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.sidebar-tab {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--tab-inactive-text);
+    cursor: pointer;
+    transition:
+            background-color 0.2s,
+            color 0.2s;
+    text-align: left; /* Align text to left within button */
+}
+
+.sidebar-tab:hover {
+    background-color: #f3f4f6;
+    color: var(--text-dark);
+}
+
+.sidebar-tab.active {
+    background-color: var(--tab-active-bg);
+    color: var(--tab-active-text);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    line-height: 1; /* Ensure icon is vertically centered */
+}
+
+/* Content Area Styles */
+.content-area {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: var(--primary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dashboard-welcome,
+.tab-placeholder {
+    max-width: 600px;
+    background-color: var(--header-bg);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin: auto; /* Center the box */
+}
+
+.dashboard-welcome h2 {
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard-welcome p {
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.target-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #6a0dad;
+    border-radius: 50%; /* Make it circular */
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.7),
+    inset 0 0 0 10px #6a0dad; /* Simulate the target */
+}
+
+.tab-placeholder h3 {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tab-placeholder p {
+    color: var(--text-medium);
+    font-size: 1rem;
+}
